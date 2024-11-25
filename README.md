@@ -19,7 +19,10 @@ instance.start();
 ```
 
 ## Preview
-Telegram chat-robot market [mirzaev/arming](https://git.mirzaev.sexy/mirzaev/arming)<br><br>
-![Alt text](/preview/5.gif)<br><br><br>
-Pen in the [CodePen](https://codepen.io/mirzaev-sexy/pen/gOzBZOP)<br><br>
-![Alt text](/preview/6.gif)
+### Telegram chat-robot market [mirzaev/arming](https://git.mirzaev.sexy/mirzaev/arming)
+![ARMING preview](/preview/5.gif)<br><br><br>
+### Large project, marketplace system [mirzaev/skillparts](https://git.mirzaev.sexy/mirzaev/skillparts)
+but the example is taken from another project that was copied and corrupted by another programmer<br><br>
+![SkillParts preview](/preview/8.gif)<br><br><br>
+### Pen in the [CodePen](https://codepen.io/mirzaev-sexy/pen/gOzBZOP)<br><br>
+![CodePen preview](/preview/6.gif)
