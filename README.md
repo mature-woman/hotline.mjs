@@ -2,6 +2,22 @@
 Module for creating "hot lines"
 
 ## Example
+```html
+<section id="wrap_articles">
+    <!-- First element -->
+    <article>
+        <h3>Place</h3>
+    </article>
+
+    <!-- Second element -->
+    <div>
+        <p>here</p>
+    </div>
+
+    <!-- Third element -->
+    <a>anything</a>
+</section>
+```
 ```js
 // Initializing an instance of hotline manually
 const instance = new hotline(
