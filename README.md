@@ -36,13 +36,13 @@ instance.start();
 
 ## Preview
 ### Site of Svoboda anarchist organization [svoboda/works](https://git.mirzaev.sexy/svoboda/works)
-![svoboda.works preview](/preview/24.gif)<br><br>
+![svoboda.works preview](preview/24.gif)<br><br>
 ### Telegram chat-robot market [mirzaev/arming](https://git.mirzaev.sexy/mirzaev/arming)
-![ARMING preview](/preview/5.gif)<br><br>
+![ARMING preview](preview/5.gif)<br><br>
 ### Large project, marketplace system [mirzaev/skillparts](https://git.mirzaev.sexy/mirzaev/skillparts)
 but the example is taken from another project that was copied and corrupted by another programmer<br><br>
-![SkillParts preview](/preview/8.gif)<br><br>
+![SkillParts preview](preview/8.gif)<br><br>
 ### Pen in the [CodePen](https://codepen.io/mirzaev-sexy/pen/gOzBZOP)<br><br>
-![CodePen preview](/preview/2024-11-27%2021_48_32-hotline.mjs.png)
-![CodePen preview](/preview/17.gif)
-![CodePen preview](/preview/6.gif)
+![CodePen preview](preview/2024-11-27%2021_48_32-hotline.mjs.png)
+![CodePen preview](preview/17.gif)
+![CodePen preview](preview/6.gif)
