@@ -3,7 +3,7 @@ Module for creating "hot lines"
 
 ## Example
 ```html
-<section id="wrap_articles">
+<section id="wrap_articles" style="display: flex">
     <!-- First element -->
     <article>
         <h3>Place</h3>
