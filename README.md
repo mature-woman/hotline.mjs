@@ -35,7 +35,7 @@ instance.start();
 ```
 
 ## Preview
-### Site of Svoboda anarchist organization [svoboda/works](https://git.mirzaev.sexy/svoboda/works)
+### Site of the Svoboda anarchist organization [svoboda/works](https://git.mirzaev.sexy/svoboda/works)
 ![svoboda.works preview](preview/24.gif)<br><br>
 ### Telegram chat-robot market [mirzaev/arming](https://git.mirzaev.sexy/mirzaev/arming)
 ![ARMING preview](preview/5.gif)<br><br>
