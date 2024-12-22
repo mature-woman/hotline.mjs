@@ -19,19 +19,23 @@ Module for creating "hot lines"
 </section>
 ```
 ```js
-// Initializing an instance of hotline manually
-const instance = new hotline(
-    'articles', 
-    document.getElementById('wrap_articles')
-);
-        
-// Initializing settings of the hotline instance
-instance.move = false;
-instance.wheel = true;
-instance.delta = 15;
+import("/js/modules/hotline.mjs").then((hotline) => {
+    // Imported the hotline.mjs module
 
-// Starting the hotline instance
-instance.start();
+    // Initializing an instance of hotline manually
+    const instance = new hotline.default(
+        'articles', 
+        document.getElementById('wrap_articles')
+    );
+        
+    // Initializing settings of the hotline instance
+    instance.move = false;
+    instance.wheel = true;
+    instance.delta = 15;
+
+    // Starting the hotline instance
+    instance.start();
+});
 ```
 
 ## Preview
