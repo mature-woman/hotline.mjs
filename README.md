@@ -22,7 +22,7 @@ Module for creating "hot lines"
 import("/js/modules/hotline.mjs").then((hotline) => {
     // Imported the hotline.mjs module
 
-    // Initializing an instance of hotline manually
+    // Initializing an instance of the hotline.mjs
     const instance = new hotline.default(
         'articles', 
         document.getElementById('wrap_articles')
