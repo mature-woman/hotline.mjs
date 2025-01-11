@@ -21,7 +21,7 @@
  * @license http://www.wtfpl.net/ Do What The Fuck You Want To Public License
  * @author Arsen Mirzaev Tatyano-Muradovich <arsen@mirzaev.sexy>
  */
-export default class hotline {
+export class hotline {
 	/**
 	 * @name Shell
 	 *
