@@ -3,7 +3,7 @@ Module for creating "hot lines"
 
 ## Example
 ```html
-<section id="wrap_articles" style="display: flex">
+<section id="wrap" style="display: flex">
     <!-- First element -->
     <article>
         <h3>Place</h3>
@@ -23,10 +23,7 @@ import("/js/modules/hotline.mjs").then((module) => {
     // Imported the hotline.mjs module
 
     // Initializing an instance of the hotline.mjs
-    const instance = new module.hotline(
-        'articles', 
-        document.getElementById('wrap_articles')
-    );
+    const instance = new module.hotline(document.getElementById('wrap'));
         
     // Initializing settings of the hotline instance
     instance.move = false;
