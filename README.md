@@ -19,11 +19,11 @@ Module for creating "hot lines"
 </section>
 ```
 ```js
-import("/js/modules/hotline.mjs").then((hotline) => {
+import("/js/modules/hotline.mjs").then((module) => {
     // Imported the hotline.mjs module
 
     // Initializing an instance of the hotline.mjs
-    const instance = new hotline.default(
+    const instance = new module.hotline(
         'articles', 
         document.getElementById('wrap_articles')
     );
