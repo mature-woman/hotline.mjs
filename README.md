@@ -26,7 +26,7 @@ import("/js/modules/hotline.mjs").then((module) => {
     const instance = new module.hotline(document.getElementById('wrap'));
         
     // Initializing settings of the hotline instance
-    instance.movable = false;
+    instance.alive = false;
     instance.wheel = true;
     instance.delta = 15;
 
