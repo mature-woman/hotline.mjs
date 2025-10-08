@@ -566,9 +566,9 @@ export class hotline {
 				
 				if (
 					(instance.vertical &&
-						Math.round(instance.#first.end) < instance.#shell.offsetTop + instance.#shell.offsetParent.offsetTop) ||
+						Math.round(instance.#first.end) < instance.#shell.offsetTop + instance.#shell.offsetParent.offsetTop - window.scrollY) ||
 					(!instance.vertical &&
-						Math.round(instance.#first.end) < instance.#shell.offsetLeft + instance.#shell.offsetParent.offsetLeft)
+						Math.round(instance.#first.end) < instance.#shell.offsetLeft + instance.#shell.offsetParent.offsetLeft - window.scrollX)
 				) {
 					// The first element with its separator went beyond the shell
 
@@ -626,9 +626,9 @@ export class hotline {
 					}
 				} else if (
 					(instance.vertical &&
-						Math.round(instance.#first.rectangle.y) > instance.#shell.offsetTop + instance.#shell.offsetParent.offsetTop) ||
+						Math.round(instance.#first.rectangle.y) > instance.#shell.offsetTop + instance.#shell.offsetParent.offsetTop - window.scrollY) ||
 					(!instance.vertical &&
-						Math.round(instance.#first.rectangle.x) > instance.#shell.offsetLeft + instance.#shell.offsetParent.offsetLeft)
+						Math.round(instance.#first.rectangle.x) > instance.#shell.offsetLeft + instance.#shell.offsetParent.offsetLeft - window.scrollX)
 				) {
 					// Beginning border of first element with its separator went beyond the shell
 
