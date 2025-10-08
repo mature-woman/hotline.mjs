@@ -476,16 +476,16 @@ export class hotline {
 	 * @name Constructor
 	 *
 	 * @description
-	 * Initialize a hotline instance and shell of elements
+	 * Initialize a hotline instance
 	 *
-	 * @param {HTMLElement} shell Shell
+	 * @param {HTMLElement} shell The shell element
 	 * @param {boolean} [inject=false] Write the hotline instance into the shell element?
 	 **/
 	constructor(shell, inject = false) {
 		if (shell instanceof HTMLElement) {
-			// Initialized the shell of elements
+			// Initialized the shell
 
-			// Writing the shell of elements
+			// Writing the shell
 			this.#shell = shell;
 
 			// Writing the hotline instance into the shell element
@@ -535,15 +535,16 @@ export class hotline {
 					instance.#first.position =
 						parseFloat(instance.#first.element.style.marginTop) || 0;
 
-					// Initializing offset of the first element (elements are separated like this)
-					instance.#first.offset =
-						parseFloat(getComputedStyle(instance.#first.element).marginBottom) || 0;
+					// Initializing offsets of the first element
+					instance.#first.offsets =
+						(parseFloat(getComputedStyle(instance.#first.element).marginBottom) || 0)
+						 + (parseFloat(getComputedStyle(instance.#shell).gap) || 0);
 
 					// Initializing coordinate of the end of the first element
 					instance.#first.end =
 						instance.#first.rectangle.y +
 						instance.#first.rectangle.height +
-						instance.#first.offset;
+						instance.#first.offsets;
 				} else {
 					// Horizontal
 
@@ -551,22 +552,23 @@ export class hotline {
 					instance.#first.position =
 						parseFloat(instance.#first.element.style.marginLeft) || 0;
 
-					// Initializing offset of the first element (elements are separated like this)
-					instance.#first.offset =
-						parseFloat(getComputedStyle(instance.#first.element).marginRight) || 0;
+					// Initializing offsets of the first element
+					instance.#first.offsets =
+						(parseFloat(getComputedStyle(instance.#first.element).marginRight) || 0)
+						 + (parseFloat(getComputedStyle(instance.#shell).gap) || 0);
 
 					// Initializing coordinate of the end of the first element
 					instance.#first.end =
 						instance.#first.rectangle.x +
 						instance.#first.rectangle.width +
-						instance.#first.offset;
+						instance.#first.offsets;
 				}
-
+				
 				if (
 					(instance.vertical &&
-						Math.round(instance.#first.end) < instance.#shell.offsetTop) ||
+						Math.round(instance.#first.end) < instance.#shell.offsetTop + instance.#shell.offsetParent.offsetTop) ||
 					(!instance.vertical &&
-						Math.round(instance.#first.end) < instance.#shell.offsetLeft)
+						Math.round(instance.#first.end) < instance.#shell.offsetLeft + instance.#shell.offsetParent.offsetLeft)
 				) {
 					// The first element with its separator went beyond the shell
 
@@ -590,7 +592,7 @@ export class hotline {
 									new CustomEvent("hotline.transfer.end", {
 										detail: {
 											element: instance.#first.element,
-											offset: -(instance.#first.rectangle.height + instance.#first.offset)
+											offset: -(instance.#first.rectangle.height + instance.#first.offsets)
 										}
 									})
 								);
@@ -612,7 +614,7 @@ export class hotline {
 									new CustomEvent("hotline.transfer.end", {
 										detail: {
 											element: instance.#first.element,
-											offset: -(instance.#first.rectangle.width + instance.#first.offset)
+											offset: -(instance.#first.rectangle.width + instance.#first.offsets)
 										}
 									})
 								);
@@ -624,9 +626,9 @@ export class hotline {
 					}
 				} else if (
 					(instance.vertical &&
-						Math.round(instance.#first.rectangle.y) > instance.#shell.offsetTop) ||
+						Math.round(instance.#first.rectangle.y) > instance.#shell.offsetTop + instance.#shell.offsetParent.offsetTop) ||
 					(!instance.vertical &&
-						Math.round(instance.#first.rectangle.x) > instance.#shell.offsetLeft)
+						Math.round(instance.#first.rectangle.x) > instance.#shell.offsetLeft + instance.#shell.offsetParent.offsetLeft)
 				) {
 					// Beginning border of first element with its separator went beyond the shell
 
@@ -649,9 +651,9 @@ export class hotline {
 							// Vertical
 
 							// Initializing offset of the last element (elements are separated like this)
-							instance.#last.offset =
-								parseFloat(getComputedStyle(instance.#last.element).marginBottom) ||
-								instance.#first.offset ||
+							instance.#last.offsets =
+								((parseFloat(getComputedStyle(instance.#last.element).marginBottom) || 0) + (parseFloat(getComputedStyle(instance.#shell).gap) || 0)) ||
+								instance.#first.offsets ||
 								0;
 
 							if (instance.events.get("transfer.beginning")) {
@@ -662,7 +664,7 @@ export class hotline {
 									new CustomEvent("hotline.transfer.beginning", {
 										detail: {
 											element: instance.#last.element,
-											offset: instance.#last.rectangle.height + instance.#last.offset
+											offset: instance.#last.rectangle.height + instance.#last.offsets
 										}
 									})
 								);
@@ -670,7 +672,7 @@ export class hotline {
 
 							// Initializing the position of the last element with the end boundary beyond the beginning boundary of the shell
 							instance.#last.element.style.marginTop =
-								-instance.#last.rectangle.height - instance.#last.offset + "px";
+								-instance.#last.rectangle.height - instance.#last.offsets + "px";
 
 							// Deleting position of the second (previously first) element (the movement is based on this property)
 							instance.#first.element.style.marginTop = null;
@@ -681,9 +683,9 @@ export class hotline {
 							// Horizontal
 
 							// Initializing offset of the last element (elements are separated like this)
-							instance.#last.offset =
-								parseFloat(getComputedStyle(instance.#last.element).marginRight) ||
-								instance.#first.offset ||
+							instance.#last.offsets =
+								((parseFloat(getComputedStyle(instance.#last.element).marginRight) || 0) + (parseFloat(getComputedStyle(instance.#shell).gap) || 0)) ||
+								instance.#first.offsets ||
 								0;
 
 							if (instance.events.get("transfer.beginning")) {
@@ -694,7 +696,7 @@ export class hotline {
 									new CustomEvent("hotline.transfer.beginning", {
 										detail: {
 											element: instance.#last.element,
-											offset: instance.#last.rectangle.width + instance.#last.offset
+											offset: instance.#last.rectangle.width + instance.#last.offsets
 										}
 									})
 								);
@@ -702,7 +704,7 @@ export class hotline {
 
 							// Initializing the position of the last element with the end boundary beyond the beginning boundary of the shell
 							instance.#last.element.style.marginLeft =
-								-instance.#last.rectangle.width - instance.#last.offset + "px";
+								-instance.#last.rectangle.width - instance.#last.offsets + "px";
 
 							// Deleting position of the second (previously first) element (the movement is based on this property)
 							instance.#first.element.style.marginLeft = null;
